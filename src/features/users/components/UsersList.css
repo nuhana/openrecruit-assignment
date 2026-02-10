@@ -1,0 +1,119 @@
+.users-list {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e6e6e6;
+}
+
+.users-list__header,
+.users-list__row {
+  display: grid;
+  grid-template-columns: 44px 280px 220px 200px 200px 140px 140px;
+  align-items: center;
+}
+
+.users-list__header {
+  font-size: 12px;
+  color: #666;
+  background: #fafafa;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 10px 12px;
+}
+
+.users-list__row {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.users-list__row:last-child {
+  border-bottom: none;
+}
+
+.users-list__cell {
+  min-width: 0;
+}
+
+.users-list__col--checkbox {
+  display: flex;
+  justify-content: center;
+}
+
+.candidate-cell {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+}
+
+.candidate-cell__avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f3f3f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.candidate-cell__info {
+  min-width: 0;
+}
+
+.candidate-cell__name {
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.candidate-cell__sub {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.candidate-cell__id {
+  color: #888;
+}
+
+.stars {
+  color: #7acb9d;
+}
+
+.location-cell {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.flag {
+  font-size: 16px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.chip--ghost {
+  background: #f7f7f7;
+}
+
+.muted {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+}

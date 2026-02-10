@@ -1,0 +1,64 @@
+.user-card {
+  background-color: #dff2e6;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.user-card__header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.user-card__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.user-card__info {
+  flex: 1;
+}
+
+.user-card__name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.user-card__location {
+  margin: 4px 0 0;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.user-card__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.user-card__stats strong {
+  display: block;
+  font-size: 14px;
+}
+
+.user-card__button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
