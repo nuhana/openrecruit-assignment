@@ -27,7 +27,7 @@ const LIST_PAGE_SIZE = 10;
 
 const Users = () => {
   const dispatch = useAppDispatch();
-  const { items, status, error } = useAppSelector((s) => s.users);
+  const { items, status, error } = useAppSelector((data) => data.users);
 
   const [view, setView] = useState<ViewMode>("grid");
   const [page, setPage] = useState(1);
