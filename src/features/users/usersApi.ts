@@ -1,10 +1,5 @@
-// src/features/users/usersApi.ts
 import data from "../../data/users.json";
-import type { User } from "./types";
-
-type UsersResponse = {
-  users: User[];
-};
+import type { User, UsersResponse } from "./types";
 
 export async function fetchUsersApi(): Promise<User[]> {
   // simulate network delay

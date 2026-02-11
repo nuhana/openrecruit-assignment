@@ -1,3 +1,16 @@
+/**
+ * Pagination component.
+ *
+ * Basic behavior implemented (Prev/Next navigation).
+ * Not fully unit tested due to time constraints.
+ *
+ * Production tests would include:
+ * - Boundary conditions (first/last page)
+ * - Disabled button states
+ * - Correct page index updates
+ */
+
+
 import "./Pagination.css";
 
 type Props = {

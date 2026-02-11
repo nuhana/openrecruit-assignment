@@ -1,3 +1,11 @@
+/**
+ * Users slice.
+ *
+ * Manages async loading state and normalized user list.
+ * Follows standard data/status/error pattern for async Redux state.
+ */
+
+
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { User } from "./types";
 import { fetchUsersApi } from "./usersApi";

@@ -1,3 +1,4 @@
+import Stars from "../../../shared/components/Stars/Stars";
 import type { User } from "../types";
 import "./UserCard.css";
 
@@ -9,16 +10,14 @@ const UserCard = ({ user }: Props) => {
   return (
     <div className="user-card">
       <div className="user-card__header">
-        <div className="user-card__avatar">
+                  <div className="user-card__avatar">
           {user.fullName.charAt(0)}
         </div>
-
-        <div className="user-card__info">
           <h3 className="user-card__name">{user.fullName}</h3>
           <p className="user-card__location">
             {user.city}, {user.country}
           </p>
-        </div>
+          <Stars value={user.rating} />
       </div>
 
       <div className="user-card__stats">

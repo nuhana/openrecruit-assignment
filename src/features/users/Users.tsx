@@ -1,3 +1,17 @@
+/**
+ * Users page container.
+ *
+ * Responsibilities:
+ * - Fetch users via Redux on first mount
+ * - Manage view mode (grid/list)
+ * - Handle pagination logic (9 items for grid, 10 for list)
+ *
+ * Trade-offs:
+ * - Pagination logic is handled locally for simplicity.
+ * - Advanced features such as sorting and filtering are intentionally omitted.
+ */
+
+
 import { useEffect, useMemo, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { fetchUsers } from "./usersSlice";
@@ -18,9 +32,12 @@ const Users = () => {
   const [view, setView] = useState<ViewMode>("grid");
   const [page, setPage] = useState(1);
 
-  useEffect(() => {
+ useEffect(() => {
+  if (status === "idle") {
     dispatch(fetchUsers());
-  }, [dispatch]);
+  }
+}, [dispatch, status]);
+
 
   // Reset to page 1 when switching views (prevents being on an invalid page)
   const handleViewChange = (newView: ViewMode) => {
@@ -28,6 +45,9 @@ const Users = () => {
     setPage(1);
   };
 
+  // Page size is dynamic based on view mode.
+  // Grid: 9 items (matches design requirement)
+  // List: 10 items (matches design requirement)
   const pageSize = view === "grid" ? GRID_PAGE_SIZE : LIST_PAGE_SIZE;
 
   const totalPages = useMemo(() => {

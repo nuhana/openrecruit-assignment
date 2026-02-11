@@ -1,73 +1,83 @@
-# React + TypeScript + Vite
+# OpenRecruit React Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project implements the candidate list page based on the provided Figma design using React, TypeScript, and Redux Toolkit. The focus of the implementation is clean structure, predictable state management, and clear trade-offs within a limited time scope.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The page supports:
 
-## React Compiler
+- Grid view (9 items per page)
+- List view (10 items per page)
+- View toggle (grid/list)
+- Basic pagination (Prev / Next)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Data is fetched via Redux using createAsyncThunk, with a mocked API layer reading from a local users.json file. A small artificial delay simulates realistic asynchronous behavior.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Setup Instructions
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Install dependencies:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+npm install
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Start development server:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+npm run dev
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Run tests:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+npm test
+
+The app runs locally at:
+
+http://localhost:5173
+
+---
+
+## Architecture
+
+The solution follows a clear separation of concerns:
+
+users.json → usersApi → usersSlice → Users page
+
+- usersApi simulates a backend API
+- usersSlice manages async state (items, status, error)
+- UI components are separated into grid, list, and card components
+- Redux Toolkit is used for predictable async state management
+
+---
+
+## Testing
+
+Tests focus on core business behavior:
+
+- Default grid rendering (9 users per page)
+- Switching to list view (10 users per page)
+- View toggle interaction
+
+Presentational components are not individually unit tested to avoid low-value snapshot tests. In a production environment, additional tests would include pagination edge cases, loading/error states, and accessibility behavior.
+
+---
+
+## Assumptions and Trade-offs
+
+Due to time constraints, the implementation prioritizes structural correctness and state logic over pixel-perfect styling.
+
+- Some Figma details were simplified.
+- Fields not available in the provided JSON were replaced with placeholders.
+- Sorting, filtering, and row-level interactions were intentionally omitted.
+- Full accessibility coverage and advanced pagination testing were not implemented.
+
+These would be natural extensions in a production-ready solution.
+
+---
+
+## Notes
+
+The implementation emphasizes:
+
+- Clear component structure
+- Separation of concerns
+- Testable business logic
+- Intentional scope control

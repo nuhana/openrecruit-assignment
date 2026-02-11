@@ -21,3 +21,7 @@ export type User = {
   status: UserStatus;
   humatch: number;
 };
+
+export type UsersResponse = {
+  users: User[];
+};
