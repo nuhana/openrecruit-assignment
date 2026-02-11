@@ -1,15 +1,15 @@
+/**
+ * Users page tests focus on:
+ * - View switching (grid/list)
+ * - Page size behavior (9 vs 10 items)
+ */
+
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import usersReducer from "./usersSlice";
 import Users from "./Users";
 import type { User } from "./types";
-
-/**
- * Users page tests focus on:
- * - View switching (grid/list)
- * - Page size behavior (9 vs 10 items)
- */
 
 
 /**
